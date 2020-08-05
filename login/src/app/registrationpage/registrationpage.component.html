@@ -1,0 +1,75 @@
+
+
+<div class="container">
+    <form #register="ngForm" (ngSubmit)="register.form.valid && onSubmit()"  >
+        <div class="row ">
+          
+      
+          <div class="col-md-6 offset-md-5 mt-4">
+            <div class="card-header">
+              <h2 class="mb-0">Registration Page</h2>
+            </div>
+  
+              <div class="card-body">
+  
+              <div class="form-group">
+              First Name:<br><input type="text" required name="fname"  class="form-control" 
+               [(ngModel)]="user.firstname" #firstName="ngModel"  pattern="[a-zA-Z]{3,12}">
+               <span  *ngIf="register.submitted && firstName.errors?.required">Please enter First Name</span>
+               <span  *ngIf="register.submitted && firstName.errors?.pattern">invalid First name</span>
+              </div>
+            
+            <div class="form-group">
+              Last Name:<br><input type="text"  name="lname"  class="form-control" 
+               [(ngModel)]="user.lastname" required #lastName="ngModel"  pattern="[a-zA-Z]{3,12}">
+               <span  *ngIf="register.submitted && lastName.errors?.required">Please enter Last Name</span>
+               <span  *ngIf="register.submitted && lastName.errors?.pattern">invalid last name</span>
+              </div>
+          
+            <div class="form-group">
+            Email:<br><input type="text"  required name="email"  class="form-control"
+             [(ngModel)]="user.email" required  #emailid="ngModel"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+             <span  *ngIf="register.submitted && emailid.errors?.required">Please enter Email id</span>
+             <span  *ngIf="register.submitted && emailid.errors?.pattern">invalid Email id</span>
+            </div>
+  
+            <div class="form-group">
+              Phone Number:<br><input type="number" name="phone"  class="form-control"
+               [(ngModel)]="user.phone" required   #phonenumber="ngModel" pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$">
+               <span  *ngIf="register.submitted && phonenumber.errors?.required">Please enter Phone number</span>
+               <span  *ngIf="register.submitted && phonenumber.errors?.pattern">invalid Phone number</span>
+              
+              </div>
+            
+            
+            <div class="form-group">
+              Profession:<br><input type="text" name="profession"  class="form-control" [(ngModel)]="user.profession"><br>
+            </div>
+  
+            <div class="form-group">
+              Password:<br><input type="password"  name="password"  class="form-control"
+               [(ngModel)]="user.password" required #pwd="ngModel" pattern="^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).{8,10}$">
+               <span  *ngIf="register.submitted && pwd.errors?.required">Please enter  Password</span>
+               <span  *ngIf="register.submitted && pwd.errors?.pattern">Please enter Strong password</span>
+            
+               <br>
+            </div>
+  
+            <!-- <div>valid: {{login.valid}} </div> -->
+            
+            <button type="submit" class="btn btn-success" >Submit</button>
+            <br>
+            <br>
+            
+
+          </div>
+          </div>
+          
+      </div>
+      </form>
+
+      <form   #already_registered="ngForm" (ngSubmit)="display_login()">
+      <button type="submit" class="btn btn-primary" >Already existing User?</button>
+      </form>
+    </div>
+    

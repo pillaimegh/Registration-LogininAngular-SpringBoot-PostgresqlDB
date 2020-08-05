@@ -1,0 +1,17 @@
+
+.card-header{
+    border-width: 10px ;
+    text-align: center;
+    text-decoration: black;
+    font-size: large;
+}
+.card-body{
+    border-width: 5px;
+}
+.row{
+    border-width: 5px;
+}
+.btn btn-primary{
+    align-self: center;
+    text-align: center;
+}
